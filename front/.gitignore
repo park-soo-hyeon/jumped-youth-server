@@ -9,7 +9,7 @@
 /coverage
 
 # production
-/build
+# /build  ← 배포용으로 git에 포함
 
 # misc
 .DS_Store
