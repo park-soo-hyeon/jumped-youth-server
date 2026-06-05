@@ -25,7 +25,10 @@ import axios from 'axios';
  * - Railway 배포: '' (빈 문자열) → Flask가 React 빌드도 함께 서빙하므로 상대 경로 사용
  * - 환경변수 REACT_APP_API_BASE로 외부에서 덮어쓰기 가능
  */
-const API_BASE = process.env.REACT_APP_API_BASE ?? 'http://127.0.0.1:8000';
+const API_BASE = process.env.REACT_APP_API_BASE
+  ?? (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
+    ? 'http://127.0.0.1:8000'  // 로컬 개발환경
+    : '');                      // 배포 환경: 같은 도메인(Flask가 React + API 동시 서빙)
 
 // ══════════════════════════════════════════════════════════════════════════════
 // 상수 정의
