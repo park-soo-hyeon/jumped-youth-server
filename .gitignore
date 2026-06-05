@@ -1,0 +1,6 @@
+back/.env
+back/__pycache__/
+back/*.pyc
+back/history.db
+front/node_modules/
+.DS_Store
